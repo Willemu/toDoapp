@@ -1,124 +1,94 @@
-// Start of Script
-  // This is the array that will hold the todo list items
-let todoItems = [];
+let form = document.getElementById("form");
+let textInput = document.getElementById("textInput");
+let dateInput = document.getElementById("dateInput");
+let textarea = document.getElementById("textarea");
+let msg = document.getElementById("msg");
+let tasks = document.getElementById("tasks");
+let add = document.getElementById("add");
 
-function renderTodo(todo) {
-  localStorage.setItem('todoItems', JSON.stringify(todoItems));
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  formValidation();
+});
 
-  const list = document.querySelector('.js-todo-list');
-  const item = document.querySelector(`[data-key='${todo.id}']`);
-
-  if (todo.deleted) {
-    // remove the item from the DOM
-    item.remove();
-    return
-    if (todoItems.length === 0) list.innerHTML = '';
-  return
-  }
-
-  const isChecked = todo.checked ? 'done': '';
-  const node = document.createElement("li");
-  node.setAttribute('class', `todo-item ${isChecked}`);
-  node.setAttribute('data-key', todo.id);
-  node.innerHTML = `
-    <input id="${todo.id}" type="checkbox"/>
-    <label for="${todo.id}" class="tick js-tick"></label>
-    <span>${todo.text}</span>
-    <button class="delete-todo js-delete-todo">
-    <svg><use href="#delete-icon"></use></svg>
-    </button>
-  `;
-
-  if (item) {
-    list.replaceChild(node, item);
+let formValidation = () => {
+  if (textInput.value === "") {
+    console.log("failure");
+    msg.innerHTML = "Task cannot be blank";
   } else {
-    list.append(node);
+    console.log("success");
+    msg.innerHTML = "";
+    acceptData();
+    add.setAttribute("data-bs-dismiss", "modal");
+    add.click();
+
+    (() => {
+      add.setAttribute("data-bs-dismiss", "");
+    })();
   }
-}
+};
 
+let data = [{}];
 
-// This function will create a new todo object based on the
-// text that was entered in the text input, and push it into
-// the `todoItems` array
-function addTodo(text) {
-  const todo = {
-    text,
-    checked: false,
-    id: Date.now(),
-  };
+let acceptData = () => {
+  data.push({
+    text: textInput.value,
+    date: dateInput.value,
+    description: textarea.value,
+  });
 
-  todoItems.push(todo);
-  renderTodo(todo);
-}
+  localStorage.setItem("data", JSON.stringify(data));
 
-function toggleDone(key) {
-  // findIndex is an array method that returns the position of an element
-  // in the array.
-  const index = todoItems.findIndex(item => item.id === Number(key));
-  // Locate the todo item in the todoItems array and set its checked
-  // property to the opposite. That means, `true` will become `false` and vice
-  // versa.
-  todoItems[index].checked = !todoItems[index].checked;
-  renderTodo(todoItems[index]);
-}
+  console.log(data);
+  createTasks();
+};
 
-function deleteTodo(key) {
-  // find the corresponding todo object in the todoItems array
-  const index = todoItems.findIndex(item => item.id === Number(key));
-  // Create a new object with properties of the current todo item
-  // and a `deleted` property which is set to true
-  const todo = {
-    deleted: true,
-    ...todoItems[index]
-  };
-  // remove the todo item from the array by filtering it out
-  todoItems = todoItems.filter(item => item.id !== Number(key));
-  renderTodo(todo);
-}
-
-// Select the form element
-const form = document.querySelector('.js-form');
-// Add a submit event listener
-form.addEventListener('submit', event => {
-  // prevent page refresh on form submission
-  event.preventDefault();
-  // select the text input
-  const input = document.querySelector('.js-todo-input');
-
-  // Get the value of the input and remove whitespace
-  const text = input.value.trim();
-  if (text !== '') {
-    addTodo(text);
-    input.value = '';
-    input.focus();
-  }
-});
-
-// Select the entire list
-const list = document.querySelector('.js-todo-list');
-// Add a click event listener to the list and its children
-list.addEventListener('click', event => {
-  if (event.target.classList.contains('js-tick')) {
-    const itemKey = event.target.parentElement.dataset.key;
-    toggleDone(itemKey);
-  }
-  if (event.target.classList.contains('js-delete-todo')) {
-    const itemKey = event.target.parentElement.dataset.key;
-    deleteTodo(itemKey);
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const ref = localStorage.getItem('todoItemsRef');
-  if (ref) {
-    todoItems = JSON.parse(ref);
-    todoItems.forEach(t => {
-      renderTodo(t);
-    });
-  }
-});
-
+let createTasks = () => {
+  tasks.innerHTML = "";
+  data.map((x, y) => {
+    return (tasks.innerHTML += `
+    <div id=${y}>
+          <span class="fw-bold">${x.text}</span>
+          <span class="small text-secondary">${x.date}</span>
+          <p>${x.description}</p>
   
+          <span class="options">
+            <i onClick= "editTask(this)" data-bs-toggle="modal" data-bs-target="#form" class="fas fa-edit"></i>
+            <i onClick ="deleteTask(this);createTasks()" class="fas fa-trash-alt"></i>
+          </span>
+        </div>
+    `);
+  });
 
+  resetForm();
+};
 
-// End of Script
+let deleteTask = (e) => {
+  e.parentElement.parentElement.remove();
+  data.splice(e.parentElement.parentElement.id, 1);
+  localStorage.setItem("data", JSON.stringify(data));
+  console.log(data);
+  
+};
+
+let editTask = (e) => {
+  let selectedTask = e.parentElement.parentElement;
+
+  textInput.value = selectedTask.children[0].innerHTML;
+  dateInput.value = selectedTask.children[1].innerHTML;
+  textarea.value = selectedTask.children[2].innerHTML;
+
+  deleteTask(e);
+};
+
+let resetForm = () => {
+  textInput.value = "";
+  dateInput.value = "";
+  textarea.value = "";
+};
+
+(() => {
+  data = JSON.parse(localStorage.getItem("data")) || []
+  console.log(data);
+  createTasks();
+})();
