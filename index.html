@@ -28,9 +28,19 @@
                 <input autofocus type="text" aria-label="Enter a new todo item" 
                 placeholder="E.g. Pick up Lizzy from piano lesson" class="js-todo-input">
               </form>
-              <form class="todo-form js-form">
-                <input type="datetime-local" id="dueDatepicker" aria-label="Enter a new todo item" 
-                placeholder="E.g. Pick up Lizzy from piano lesson" class="js-todo-input">
+            </div>
+
+            <div class="datePicker">
+              
+                <svg class="dateBlock"><use href="#checklist-icon"></use></svg>
+                <h2 class="empty-state__title">Select a due date</h2>
+                <p class="empty-state__description">When must this be done?</p>
+              </div>
+
+
+              <form class="todo-date js-form">
+                <input type="datetime-local" id="dueDatepicker" aria-label="Select the data the task is due" 
+                class="js-date-input">
               </form>
             </div>
 

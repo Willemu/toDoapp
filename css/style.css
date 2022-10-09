@@ -35,6 +35,16 @@ body {
   opacity: 0.5;
 }
 
+.datePicker {
+  text-align: center;
+}
+
+dueDatepicker {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 svg {
   width: 64px;
   height: 64px;
