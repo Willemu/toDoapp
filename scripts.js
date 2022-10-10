@@ -93,7 +93,7 @@ let resetForm = () => {
   createTasks();
 })();
 
-//added sort tasks to sorts tasks according to task heading
+//added sort tasks to sorts tasks according to task heading - not functioning yet
 let sorttasks = tasks.innerHTML
 
 tasks.sort(function (a, b) {
@@ -107,3 +107,13 @@ tasks.sort(function (a, b) {
 });
 
 console.log(tasks);
+
+//added sort tasks to sorts tasks according to task due date - not functioning yet
+
+//let array = [{id: 1, date: Mar 12 2012 10:00:00 AM}, {id: 2, date: Mar 8 2012 08:00:00 AM}];
+
+array.sort(function(o1,o2){
+  if (sort_o1_before_o2)    return -1;
+  else if(sort_o1_after_o2) return  1;
+  else                      return  0;
+});
