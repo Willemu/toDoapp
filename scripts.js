@@ -54,6 +54,7 @@ let createTasks = () => {
   
           <span class="options">
             <i onClick= "editTask(this)" data-bs-toggle="modal" data-bs-target="#form" class="fas fa-edit"></i>
+            <i onClick= "completeTask(this);createTaks(strike)" class="far fa-thumbs-up"></i>
             <i onClick ="deleteTask(this);createTasks()" class="fas fa-trash-alt"></i>
           </span>
         </div>
@@ -68,7 +69,12 @@ let deleteTask = (e) => {
   data.splice(e.parentElement.parentElement.id, 1);
   localStorage.setItem("data", JSON.stringify(data));
   console.log(data);
-  
+};
+
+//duplicated the delete Task above to see if I can make it a complete function
+let completeTask = (e) => {
+  e.parentElement.parentElement.strike();
+    console.log(completeTask.strike);
 };
 
 let editTask = (e) => {

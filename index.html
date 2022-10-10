@@ -27,13 +27,15 @@
         background-image: url(Images/todo_batman_logo.jpg);
         
               }
-              
+      
+       /*-- see if i can use the jumbotron and add an image above
+       the heading --*/       
       .jumbotron {
         background-size: 25%;
         background-repeat: no-repeat;
-        height: 50vh;
-        background-position: left;
-        background-color: lightgray;
+        height: 10vh;
+        background-position: center;
+        background-color: white;
         color: black;
                             }
       
@@ -42,7 +44,9 @@
 
 <body>
   <div class="app">
-    <h4 class="mb-3">Batman To-Do App</h4>
+    <div class=jumbotron style="background-image: url(Images/todo_batman.jpg);"
+      id="heading"></div>
+    <h4 class="mb-3 center">Batman To-Do App</h4>
 
 
     <div id="addNew" data-bs-toggle="modal" data-bs-target="#form">
