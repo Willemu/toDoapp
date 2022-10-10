@@ -92,3 +92,18 @@ let resetForm = () => {
   console.log(data);
   createTasks();
 })();
+
+//added sort tasks to sorts tasks according to task heading
+let sorttasks = tasks.innerHTML
+
+tasks.sort(function (a, b) {
+  if (a.tasks < b.tasks) {
+    return -1;
+  }
+  if (a.tasks > b.tasks) {
+    return 1;
+  }
+  return 0;
+});
+
+console.log(tasks);

@@ -67,3 +67,9 @@ body {
 #msg {
   color: red;
 }
+
+/*--adding the strike through text for deleted/compled items
+check how to add the difference with another button--*/
+.done span {
+  text-decoration: line-through;
+}
