@@ -54,7 +54,7 @@ let createTasks = () => {
   
           <span class="options">
             <i onClick= "editTask(this)" data-bs-toggle="modal" data-bs-target="#form" class="fas fa-edit"></i>
-            <i onClick= "completeTask(this);createTaks(strike)" class="far fa-thumbs-up"></i>
+            <i onClick= "completeTask(this);createTasks()" class="far fa-thumbs-up"></i>
             <i onClick ="deleteTask(this);createTasks()" class="fas fa-trash-alt"></i>
           </span>
         </div>
@@ -71,11 +71,18 @@ let deleteTask = (e) => {
   console.log(data);
 };
 
-//duplicated the delete Task above to see if I can make it a complete function
-let completeTask = (e) => {
-  e.parentElement.parentElement.strike();
-    console.log(completeTask.strike);
-};
+//function that that completes task.
+function completeItem(event) {
+  const element = event.target.closest('.task-content')
+  console.log(element)
+  let textInput = element.querySelector(".new-task-created");
+  let dateInput = element.querySelector(".due-date");
+  let textarea = element.querySelector(".due-time");
+  // style..
+  taskItem.style.textDecoration = "line-through";
+  dateItem.style.textDecoration = "line-through";
+  timeItem.style.textDecoration = "line-through";
+}
 
 let editTask = (e) => {
   let selectedTask = e.parentElement.parentElement;

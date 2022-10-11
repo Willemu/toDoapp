@@ -74,8 +74,7 @@ body {
 
 /*--adding the strike through text for deleted/compled items
 check how to add the difference with another button--*/
-.done span {
-  background: grey;
+.options {
   color: black;
   text-decoration: line-through;
 }
