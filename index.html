@@ -55,27 +55,27 @@
     </div>
 
     <!-- Modal -->
-    <form class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form class="modal fade" id="form" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add a new task</h5>
+            <h5 class="modal-title" id="ModalLabel">Add a new task Batman!</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <p>What is the task?</p>
-            <input type="text" class="form-control" name="" id="textInput">
+            <input type="text" class="newTask" name="" id="textInput">
             <div id="msg"></div>
             <br>
             <p>When is it due?</p>
-            <input type="date" class="form-control" name="" id="dateInput">
+            <input type="date" class="dueDate" name="" id="dateInput">
             <br>
             <p>Add a description</p>
-            <textarea name="" class="form-control" id="textarea" cols="30" rows="5"></textarea>
+            <textarea name="" class="textDescription" id="textarea" cols="30" rows="5"></textarea>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" id="add" class="btn btn-primary">Add</button>
+            <button type="button" id="closebutton"class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" id="addbutton" class="btn btn-primary">Add</button>
           </div>
         </div>
       </div>

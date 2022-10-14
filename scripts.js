@@ -14,7 +14,7 @@ form.addEventListener("submit", (e) => {
 let formValidation = () => {
   if (textInput.value === "") {
     console.log("failure");
-    msg.innerHTML = "Task cannot be blank";
+    msg.innerHTML = "Task cannot be blank Batman, please add something.";
   } else {
     console.log("success");
     msg.innerHTML = "";
@@ -54,7 +54,7 @@ let createTasks = () => {
   
           <span class="options">
             <i onClick= "editTask(this)" data-bs-toggle="modal" data-bs-target="#form" class="fas fa-edit"></i>
-            <i onClick= "completeTask(this);createTasks()" class="far fa-thumbs-up"></i>
+            <i onClick= "completeTask(this);createTasks(strike)" class="far fa-thumbs-up"></i>
             <i onClick ="deleteTask(this);createTasks()" class="fas fa-trash-alt"></i>
           </span>
         </div>
@@ -72,16 +72,16 @@ let deleteTask = (e) => {
 };
 
 //function that that completes task.
-function completeItem(event) {
-  const element = event.target.closest('.task-content')
-  console.log(element)
-  let textInput = element.querySelector(".new-task-created");
-  let dateInput = element.querySelector(".due-date");
-  let textarea = element.querySelector(".due-time");
+let completeTask = (e) => {
+  const element = createTasks
+  console.log(createTasks) = createTasks.queryselector("tasks")
+  let createTasks = e.parentElement.parentElement;
+     
   // style..
-  taskItem.style.textDecoration = "line-through";
-  dateItem.style.textDecoration = "line-through";
-  timeItem.style.textDecoration = "line-through";
+  createTasks.style.textDecoration = "line-through";
+  
+
+  deleteTask(e);
 }
 
 let editTask = (e) => {

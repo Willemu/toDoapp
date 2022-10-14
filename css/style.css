@@ -56,7 +56,7 @@ body {
   padding: 5px;
   display: grid;
   gap: 4px;
-}
+ }
 
 #tasks div .options {
   justify-self: center;
@@ -75,6 +75,20 @@ body {
 /*--adding the strike through text for deleted/compled items
 check how to add the difference with another button--*/
 .options {
-  color: black;
   text-decoration: line-through;
+}
+
+.modal-content {
+ background-color: black;
+ color: white;
+ gap: 4px
+}
+
+#addbutton {
+  background-color: yellow;
+  color: black;
+}
+
+#closebutton {
+  background-color: grey;
 }
