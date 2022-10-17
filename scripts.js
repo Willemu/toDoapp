@@ -54,7 +54,7 @@ let createTasks = () => {
   
           <span class="options">
             <i onClick= "editTask(this)" data-bs-toggle="modal" data-bs-target="#form" class="fas fa-edit"></i>
-            <i onClick= "completeTask(this);createTasks(strike)" class="far fa-thumbs-up"></i>
+            <i onClick= "completeTask(this);createTasks()" class="far fa-thumbs-up"></i>
             <i onClick ="deleteTask(this);createTasks()" class="fas fa-trash-alt"></i>
           </span>
         </div>
@@ -69,20 +69,8 @@ let deleteTask = (e) => {
   data.splice(e.parentElement.parentElement.id, 1);
   localStorage.setItem("data", JSON.stringify(data));
   console.log(data);
-};
-
-//function that that completes task.
-let completeTask = (e) => {
-  const element = createTasks
-  console.log(createTasks) = createTasks.queryselector("tasks")
-  let createTasks = e.parentElement.parentElement;
-     
-  // style..
-  createTasks.style.textDecoration = "line-through";
   
-
-  deleteTask(e);
-}
+};
 
 let editTask = (e) => {
   let selectedTask = e.parentElement.parentElement;
@@ -92,6 +80,7 @@ let editTask = (e) => {
   textarea.value = selectedTask.children[2].innerHTML;
 
   deleteTask(e);
+
 };
 
 let resetForm = () => {
@@ -106,27 +95,5 @@ let resetForm = () => {
   createTasks();
 })();
 
-//added sort tasks to sorts tasks according to task heading - not functioning yet
-let sorttasks = tasks.innerHTML
 
-tasks.sort(function (a, b) {
-  if (a.tasks < b.tasks) {
-    return -1;
-  }
-  if (a.tasks > b.tasks) {
-    return 1;
-  }
-  return 0;
-});
 
-console.log(tasks);
-
-//added sort tasks to sorts tasks according to task due date - not functioning yet
-
-//let array = [{id: 1, date: Mar 12 2012 10:00:00 AM}, {id: 2, date: Mar 8 2012 08:00:00 AM}];
-
-array.sort(function(o1,o2){
-  if (sort_o1_before_o2)    return -1;
-  else if(sort_o1_after_o2) return  1;
-  else                      return  0;
-});

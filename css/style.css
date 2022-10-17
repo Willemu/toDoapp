@@ -72,19 +72,14 @@ body {
   color: red;
 }
 
-/*--adding the strike through text for deleted/compled items
-check how to add the difference with another button--*/
-.options {
-  text-decoration: line-through;
-}
-
 .modal-content {
  background-color: black;
+ background-image: url(images/todo_batman_logo.jpg);
  color: white;
  gap: 4px
 }
 
-#addbutton {
+#add {
   background-color: yellow;
   color: black;
 }
