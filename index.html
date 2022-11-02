@@ -12,7 +12,7 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
 
-  <!--Some styles elements in my html - decide which ones to use for todo app-->
+  <!--Some styles elements in my html -->
     <style>
       
       body{
@@ -43,18 +43,21 @@
 </head>
 
 <body>
+
+  <!-- Using a jumbotron for the top of the task list to ensure responsiveness
+  and to insert the image -->
   <div class="app">
     <div class=jumbotron style="background-image: url(Images/todo_batman.jpg);"
       id="heading"></div>
     <h4 class="mb-3 center">Batman To-Do App</h4>
 
-
+<!-- Adding the plus sign to add any new tasks -->
     <div id="addNew" data-bs-toggle="modal" data-bs-target="#form">
       <span>Add New Task</span>
       <i class="fas fa-plus"></i>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal for adding new tasks, due date and description of task -->
     <form class="modal fade" id="form" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
