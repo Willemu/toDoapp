@@ -95,5 +95,12 @@ let resetForm = () => {
   createTasks();
 })();
 
+$('.sortme').sort(function(a, b) {
+  if (a.textInput < b.textInput) {
+    return -1;
+  } else {
+    return 1;
+  }
+}).appendTo('tasks');
 
 
