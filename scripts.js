@@ -95,12 +95,12 @@ let resetForm = () => {
   createTasks();
 })();
 
-$('.sortme').sort(function(a, b) {
-  if (a.textInput < b.textInput) {
-    return -1;
-  } else {
-    return 1;
-  }
-}).appendTo('tasks');
+const points = [textInput.value];
+document.getElementById("data").innerHTML = points;  
+
+function myFunction1() {
+  points.sort(function(a, b){return a - b});
+  document.getElementById("data").innerHTML = points;
+}
 
 
