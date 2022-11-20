@@ -9,6 +9,7 @@ body {
   height: 100vh;
 }
 
+/* The app look and feel styling */
 .app {
   background-color: white;
   text-align: center;
@@ -24,6 +25,7 @@ body {
   width: 0 !important;
 }
 
+/* Adding an new task */
 #addNew {
   display: flex;
   justify-content: space-between;
@@ -34,6 +36,7 @@ body {
   cursor: pointer;
 }
 
+/* Adding an new task - the red plus button */
 .fa-plus {
   background-color: red;
   padding: 3px;
@@ -49,6 +52,7 @@ body {
   gap: 14px;
 }
 
+/* styling for landingpage block that shows all tasks */
 #tasks div {
   border: 3px solid black;
   background-color: yellow;
@@ -72,6 +76,7 @@ body {
   color: red;
 }
 
+/* styling for modal where users adds new tasks */
 .modal-content {
  background-color: black;
  background-image: url(images/todo_batman_logo.jpg);

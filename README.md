@@ -1,4 +1,4 @@
-The to-do app is due on 21 November, and here are the instructions:
+The to-do app is due on 25 November 2022, and here are the instructions:
 
 Using  HTML, CSS and JavaScript you are going to create a Single Page Application (SPA) that helps your users keep track of various tasks. You must make effective use of Object-Oriented Programming to build your application, as a result, plan it thoroughly before you start with coding.
 
