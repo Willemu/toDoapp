@@ -95,12 +95,29 @@ let resetForm = () => {
   createTasks();
 })();
 
-const points = [textInput.value];
-document.getElementById("data").innerHTML = points;  
+//adding the sort function to sort alphabetically based on textInput value//
 
-function myFunction1() {
-  points.sort(function(a, b){return a - b});
-  document.getElementById("data").innerHTML = points;
+const list = document.querySelector('.list');
+
+const sort_alpha_button = document.querySelector('.sort-options .sort-tasks');
+
+let desc = false;
+sort_alpha_button.addEventListener('click', () => {
+  let array = sort_array_by(list, 'text', desc);
+  displayList (array);
+  desc = !desc;
+});
+
+//converted the list to a string, need to convert the list to an array for this to work//
+function sort_array_by(array, sort, desc) {
+  array.sort(function (a, b) {
+    if (a[sort] < b[sort]) return -1;
+    if (a[sort] > b[sort]) return 1;
+    return 0;
+  });
+
+  if (desc) array.reverse();
+  return array;
 }
 
 
