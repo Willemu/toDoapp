@@ -127,7 +127,7 @@ data = data.sort((a, b) => {
 });
 
 // script for strike through when clicking on thumbs up
-let completeTask = new String("Demo Text");
+let completeTask = new String("data");
          document.write(str.strike());
          alert(str.strike());
 
