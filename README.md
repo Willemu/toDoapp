@@ -1,11 +1,19 @@
 Welocome to my to-do app.
+
 The App is aimed at the young of heart, that still has need to track the tasks they set for themselves.
+
 It is very simple to use:
+
 Simply click on the red plus button.
+
 A screen will open where you can load your task, the due date of your task and if you want to, a description of your task.
+
 When you have loaded this info, simply click on ADD and then your task will be documented.
+
 When you are on your task list, you are able to adjust/update existing tasks, delete tasks and complete tasks.
+
 You can also sort your tasks in alphabetical order - ascending or decending.
+
 Enjoy the app.
 
 Detail of the assignment:
