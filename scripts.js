@@ -46,11 +46,12 @@ let acceptData = () => {
 
   console.log(data);
   createTasks();
-};
+  };
 
 //summary of tasks with some functions like delete,edit and complete as click events
 let createTasks = () => {
   tasks.innerHTML = "";
+  
   data.map((x, y) => {
     return (tasks.innerHTML += `
     <div id=${y}>
@@ -65,6 +66,7 @@ let createTasks = () => {
           </span>
         </div>
     `);
+    
   });
 
   resetForm();
@@ -130,7 +132,17 @@ data = data.sort((a, b) => {
 let completeTask = new String("data");
          document.write(str.strike());
          alert(str.strike());
-
-
+         
+//other method
+         todos = todos.sort(function (a, b) {
+          let todoA = a.text.toLowerCase();
+          let todoB = b.text.toLowerCase();
+          if (todoA < todoB) {
+          return -1;
+          } else if (todoA > todoB) {
+          return 1;
+          }
+          return 0;
+          });
 
 

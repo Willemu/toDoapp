@@ -1,3 +1,15 @@
+Welocome to my to-do app.
+The App is aimed at the young of heart, that still has need to track the tasks they set for themselves.
+It is very simple to use:
+Simply click on the red plus button.
+A screen will open where you can load your task, the due date of your task and if you want to, a description of your task.
+When you have loaded this info, simply click on ADD and then your task will be documented.
+When you are on your task list, you are able to adjust/update existing tasks, delete tasks and complete tasks.
+You can also sort your tasks in alphabetical order - ascending or decending.
+Enjoy the app.
+
+Detail of the assignment:
+
 The to-do app is due on 25 November 2022, and here are the instructions:
 
 Using  HTML, CSS and JavaScript you are going to create a Single Page Application (SPA) that helps your users keep track of various tasks. You must make effective use of Object-Oriented Programming to build your application, as a result, plan it thoroughly before you start with coding.
